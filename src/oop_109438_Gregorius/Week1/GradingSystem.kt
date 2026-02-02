@@ -20,7 +20,7 @@ fun main() {
 
     val idLength = studentID?.length ?: 0
 
-    println("Panjang ID: $idLength")git
+    println("Panjang ID: $idLength")
 }
 
 fun calculateStatus(score: Int) = if (score > 75) "Lulus" else "Tidak Lulus"
