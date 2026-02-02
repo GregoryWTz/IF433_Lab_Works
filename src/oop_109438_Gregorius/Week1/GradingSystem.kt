@@ -2,7 +2,7 @@ package oop_109438_Gregorius.Week1
 
 fun main() {
     val name: String = "John Cena"
-    val score: Int = 0
+    val score: Int = 76
 
     println("Nama: $name Score: $score")
 
@@ -14,4 +14,7 @@ fun main() {
     }
 
     println("Grade kamu: $grade")
+    println("Status: ${calculateStatus(score)}")
 }
+
+fun calculateStatus(score: Int) = if (score > 75) "Lulus" else "Tidak Lulus"
