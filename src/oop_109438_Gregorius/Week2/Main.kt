@@ -23,5 +23,6 @@ fun main() {
 
         val s1 = Student(name, nim, major)
         println("Status: Pendaftaran Selesai.")
+        println("Detail: ${s1.name}, NIM: ${s1.nim}, Jurusan: ${s1.major}, GPA: ${s1.gpa}")
     }
 }
