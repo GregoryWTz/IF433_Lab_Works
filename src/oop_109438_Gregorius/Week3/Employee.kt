@@ -5,17 +5,15 @@ class Employee(val name: String) {
     set(value) {
         if (value < 0) {
             println("ERROR: Gaji tidak boleh negatif! Di-set ke 0.")
-            field = 0 // Gunakan field, bukan this.salary
+            field = 0
         } else {
-            field = value // Gunakan field untuk assign nilai asli
+            field = value
         }
     }
 
-    // Tax (Pajak) dihitung 10% dari gaji saat ini
     val tax: Double
         get() = salary * 0.1
 
-    // Hanya bisa diakses di file/class ini saja
     private var performanceRating: Int = 3
 
     fun increasePerformance() {
@@ -23,8 +21,6 @@ class Employee(val name: String) {
         println("Kinerja $name meningkat! Rating: $performanceRating")
     }
 
-    // Kita tidak buat getter untuk performanceRating, jadi data ini benar-benar raha
-    // kecuali kita buat function khusus untuk print
     fun printStatus() {
         println("Karyawan: $name, Rating: $performanceRating")
     }
