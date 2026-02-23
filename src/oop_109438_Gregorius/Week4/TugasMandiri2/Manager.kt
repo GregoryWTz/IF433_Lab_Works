@@ -6,7 +6,7 @@ open class Manager(name: String, baseSalary: Int) : Employee(name, baseSalary) {
         println("$name sedang memimpin rapat divisi.")
     }
 
-    override fun calculateBonus() {
+    override fun calculateBonus(): Int {
         return super.calculateBonus() + 500000
     }
 }
