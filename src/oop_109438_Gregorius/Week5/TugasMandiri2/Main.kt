@@ -8,5 +8,11 @@ fun main() {
 
     for (payment in paymentList) {
         payment.processPayment(75000.0)
+        if (payment is EWallet) {
+            println(">>> Terdeteksi EWallet! Melakukan topUp otomatis...")
+            payment.topUp(50000.0) // Smart cast otomatis, tidak perlu casting manual
+            println(">>> Mencoba pembayaran ulang...")
+            payment.processPayment(75000.0)
+        }
     }
 }
