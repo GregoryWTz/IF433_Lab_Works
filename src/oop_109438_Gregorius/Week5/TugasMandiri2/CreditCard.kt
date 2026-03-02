@@ -4,9 +4,9 @@ class CreditCard(accountName: String, val limit: Double, var usedAmount: Double 
     override fun processPayment(amount: Double) {
         if (usedAmount + amount < limit) {
             usedAmount += amount
-            print("Sukses!")
+            print("Sukses bayar menggunakan kartu kredit!\n")
         } else {
-            print("Transaksi ditolak!")
+            print("Transaksi ditolak!\n")
         }
     }
 }
