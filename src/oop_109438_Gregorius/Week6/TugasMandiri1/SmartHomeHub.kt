@@ -15,6 +15,17 @@ class SmartHomeHub {
                 device.turnOff()
             }
         }
-        println("-----------------------------------------")
+    }
+
+    fun activateSecurityMode() {
+        println("\n=== SECURITY MODE ACTIVATED ===")
+        for (device in devices) {
+            if (device is Recordable) {
+                device.startRecord()
+            }
+            if (device is SmartSpeaker) {
+                device.playMusic("Sirine Peringatan")
+            }
+        }
     }
 }
