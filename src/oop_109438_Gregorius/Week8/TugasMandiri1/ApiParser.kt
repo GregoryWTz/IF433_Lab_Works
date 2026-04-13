@@ -1,31 +1,51 @@
 package oop_109438_Gregorius.Week8.TugasMandiri1
 
-fun parseProduct(rawJson: Map<String, Any?>): Product? {
-    val id = requireNotNull(rawJson["id"]) { "API Invalid: Missing ID" } as String
-    val name = requireNotNull(rawJson["name"]) { "API Invalid: Missing Name" } as String
+class ApiParser {
+    fun parseProduct(rawJson: Map<String, Any?>): Product? {
+        val id = requireNotNull(rawJson["id"]) { "API Invalid: Missing ID" } as String
+        val name = requireNotNull(rawJson["name"]) { "API Invalid: Missing Name" } as String
 
-    val type = rawJson["type"] as? String
+        return when (rawJson["type"] as? String) {
 
-    return when (type) {
-        "ELECTRONIC" -> {
-            val warranty = rawJson["warrantyMonths"] as? Int ?: 12
-            Electronic(id, name, warranty)
+            "ELECTRONIC" -> {
+                val warranty = rawJson["warranty"] as? Int ?: 12
+                Electronic(id, name, warranty)
+            }
+
+            "CLOTHING" -> {
+                val size = rawJson["size"] as? String ?: "All Size"
+                Clothing(id, name, size)
+            }
+
+            else -> null
         }
-        "CLOTHING" -> {
-            val size = rawJson["size"] as? String ?: "All Size"
-            Clothing(id, name, size)
-        }
-        else -> null
-    }
-}
-
-fun checkout(product: Product) {
-    val id = when (product) {
-        is Electronic -> product.id
-        is Clothing -> product.id
     }
 
-    val transactionId = JavaPaymentService.processPayment(id)!!
+    fun checkout(product: Product, rawJson: Map<String, Any?>) {
 
-    println("Transaction successful! ID: $transactionId")
+        when (product) {
+            is Electronic -> {
+                val isFallback = rawJson["warranty"] !is Int
+
+                if (isFallback) {
+                    println("${product.name} (Fallback Warranty ${product.warrantyMonths})")
+                } else {
+                    println("${product.name} (Warranty ${product.warrantyMonths})")
+                }
+            }
+
+            is Clothing -> {
+                println("${product.name} (Size ${product.size})")
+            }
+        }
+
+        val transactionId = JavaPaymentService.processPayment(
+            when (product) {
+                is Electronic -> product.id
+                is Clothing -> product.id
+            }
+        )!!
+
+        println("Transaction successful! ID: $transactionId")
+    }
 }
