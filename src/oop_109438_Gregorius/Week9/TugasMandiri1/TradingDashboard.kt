@@ -32,4 +32,10 @@ fun main() {
     tradeHistory.forEach { row ->
         println(row)
     }
+
+    worstPerformersString.forEach { row ->
+        println(row)
+    }
+
+    println("Unique Pairs: $uniquePairs")
 }
