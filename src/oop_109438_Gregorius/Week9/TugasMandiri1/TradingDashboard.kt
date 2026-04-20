@@ -1,0 +1,12 @@
+package oop_109438_Gregorius.Week9.TugasMandiri1
+
+fun main() {
+    val tradeHistory = listOf(
+        TradeLog("BTCUSDT", "LONG", 20, 15.5, "CLOSED"),   // Profit
+        TradeLog("BTCUSDT", "SHORT", 10, -5.2, "CLOSED"),  // Loss
+        TradeLog("ETHUSDT", "LONG", 50, 42.0, "OPEN"),     // Profit & Open
+        TradeLog("ETHUSDT", "SHORT", 25, -12.8, "CLOSED"), // Loss
+        TradeLog("SOLUSDT", "LONG", 10, -2.5, "OPEN"),     // Loss & Open
+        TradeLog("SOLUSDT", "LONG", 20, 8.7, "CLOSED")     // Profit
+    )
+}
