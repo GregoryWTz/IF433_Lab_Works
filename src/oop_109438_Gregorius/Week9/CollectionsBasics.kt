@@ -14,11 +14,25 @@ fun main() {
     println("Mutable List: $scores")
 
     println("\n=== TEST SET ===")
-    val uniqueNumbers = setOf(1, 2, 3, 3, 4)
+    val uniqueNumbers = setOf(1, 2, 3, 3, 4) // setOff menghilangkan duplikasi data pada saat di Input / inisiasi
     println("Unique Numbers (Set): $uniqueNumbers") // Duplikat hilang
 
     val activeUsers = mutableSetOf("UserA", "UserB")
     activeUsers.add("UserC")
     activeUsers.add("UserA") // Diabaikan karena sudah ada
     println("Active Users: $activeUsers")
+
+    println("\n=== TEST MAP ===")
+    val studentGrades = mapOf(
+        "Alice" to "A",
+        "Bob" to "B",
+        "Charlie" to "A", // Value bolek duplikat, Key tidak
+        // "Alice" to "C", Jika ini dijalankan, Alice bukan A, tetapi pakai C
+    )
+    println("Nilai Bob: ${studentGrades["Bob"]}")
+
+    val inventory = mutableMapOf("Apples" to 50, "Bananas" to 30)
+    inventory["Oranges"] = 20 // Menambah data Baru
+    inventory["Apples"] = 45 // Mengupdate data lama
+    println("Inventory: $inventory")
 }
