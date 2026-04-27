@@ -18,4 +18,5 @@ fun main() {
     txRepo.add(Transaction( "BTC", 6000.0))
     txRepo.add(Transaction( "ETH", 6000.0))
     txRepo.add(Transaction( "SOL", 6000.0))
+    // Works
 }
