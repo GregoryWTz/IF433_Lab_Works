@@ -13,4 +13,9 @@ fun main() {
         println("Price  : Rp${"%,.0f".format(coin.balance)}")
         println()
     }
+
+    val txRepo = WalletRepository<Transaction>()
+    txRepo.add(Transaction( "BTC", 6000.0))
+    txRepo.add(Transaction( "ETH", 6000.0))
+    txRepo.add(Transaction( "SOL", 6000.0))
 }
