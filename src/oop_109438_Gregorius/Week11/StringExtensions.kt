@@ -9,3 +9,6 @@ fun String.repeatTimes(n : Int): String {
     return this.repeat(n)
 }
 
+fun String?.isNullEmptyCustom(): Boolean {
+    return this == null || this.isEmpty()
+}
