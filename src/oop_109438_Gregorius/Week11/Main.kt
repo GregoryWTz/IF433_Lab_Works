@@ -7,4 +7,11 @@ fun main() {
 
     val text: String? = null
     println("Apakah null/empty? ${text.isNullOrEmptyCustom()}")
+
+    println("=== TEST APPLY ===")
+    val user = User().apply {
+        name = "Alex"
+        age = 25
+    }
+    println(user)
 }
