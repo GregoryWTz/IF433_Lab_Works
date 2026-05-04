@@ -21,4 +21,13 @@ fun main() {
         println("(LOG) Kmarea terhubung")
         homeDevices.add(it)
     }
+
+    val AcInventer = run {
+        SmartDevice("Daikin Inverter (Kabel 3x2.5)", "HVAC", false, 800)
+    }
+    homeDevices.add(AcInventer)
+
+    homeDevices.add(
+        SmartDevice("Picolo's Auto Feeder", "Pet Care", true, 10)
+    )
 }
