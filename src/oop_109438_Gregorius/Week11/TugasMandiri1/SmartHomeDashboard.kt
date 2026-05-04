@@ -13,4 +13,12 @@ fun main() {
             }
         )
     }
+
+    SmartDevice("Ezviz Outdoor", "Camera").apply {
+        isOnline = true
+        powerLoad = 12
+    }.also {
+        println("(LOG) Kmarea terhubung")
+        homeDevices.add(it)
+    }
 }
