@@ -6,3 +6,8 @@ data class TradeRecord(val id: Int, val symbol: String, val type: String, val ma
 fun TradeRecord.toCsv(): String {
     return "$id,$symbol,$type,$margin,$pnl"
 }
+
+fun fromCsvTrade(line: String): TradeRecord? {
+    val parts = line.split(",")
+    if (parts.size != 5) return null
+}
